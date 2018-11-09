@@ -1,0 +1,15 @@
+<view class='sliderShow'>
+  <swiper display-multiple-items="3" autoplay interval="3000" circular="true">
+    <swiper-item class="item" wx:for="{{imgUrl}}" wx:key="index">
+      <view style='background:url({{imgUrl[index]}}) center center no-repeat;background-size:contain;'></view>
+    </swiper-item>
+  </swiper>
+  <view id='photoContent' bindtap="showBigger">
+    <view class='photo' data-index='{{index}}' wx:for="photosUrl" wx:key="index" style='background:url({{photosUrl[index].src}}) center 5% no-repeat;background-size:contain;'>
+      <view class='photoName'>{{photosUrl[index].name}}</view>
+    </view>
+  </view>
+  <view class='mask' bindtap="hideBigger" hidden='{{flag}}'>
+    <view style='background-image:url({{showUrl}});background-repeat:no-repeat;background-size:contain;background-position:center;'></view>
+  </view>
+</view>
